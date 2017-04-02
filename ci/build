@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+run() {
+  local dir=$(dirname ${BASH_SOURCE})
+  local rootdir=$(dirname ${dir})
+  source "${dir}/bash-boilerplate.sh"
+
+  source "${dir}/set-env-vars.sh"
+
+  docker build -t ${DOCKER_REPO_NAME} ${rootdir}/docker
+}
+
+run
