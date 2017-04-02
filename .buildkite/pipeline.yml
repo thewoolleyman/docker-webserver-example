@@ -1,0 +1,7 @@
+steps:
+  - label: ':classical_building: build'
+    command: 'ci/build'
+  - wait
+  - label: ':docker: push'
+    command: 'ci/build'
+
