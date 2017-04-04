@@ -9,7 +9,7 @@ run() {
   local image_id="$(docker images | grep -E "^${DOCKER_REPO_NAME} " | tr -s ' ' | cut -d ' ' -f 3)"
   local image_created_timestamp="$(docker inspect -f '{{ .Created }}' ${image_id} | sed -e 's/[:-]//g' | cut -d '.' -f 1)"
   local git_sha="$(git log -1 --pretty=format:"%h")"
-  local tag="${DOCKER_SEMVER_MAJOR_MINOR_PATCH_VERSION}-${image_created_timestamp}-${git_sha}-${BUILD_NUMBER}"
+  local tag="${DOCKER_SEMVER_MAJOR_MINOR_PATCH_VERSION}-${image_created_timestamp}-${BUILD_NUMBER}-${git_sha}"
   docker tag ${image_id} ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}:${tag}
   docker push ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}
 }
