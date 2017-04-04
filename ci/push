@@ -2,7 +2,6 @@
 
 run() {
   local dir=$(dirname ${BASH_SOURCE})
-  local rootdir=$(dirname ${dir})
   source "${dir}/bash-boilerplate.sh"
 
   source "${dir}/set-env-vars.sh"

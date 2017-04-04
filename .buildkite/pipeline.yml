@@ -3,4 +3,4 @@ steps:
     command: 'ci/build'
   - wait
   - label: ':docker: push'
-    command: 'ci/push'
+    command: 'ci/login && ci/push'

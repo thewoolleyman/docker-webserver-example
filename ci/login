@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+run() {
+  local dir=$(dirname ${BASH_SOURCE})
+  source "${dir}/bash-boilerplate.sh"
+
+  docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}
+}
+
+run
+
+
