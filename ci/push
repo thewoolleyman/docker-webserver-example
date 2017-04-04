@@ -11,8 +11,8 @@ run() {
   local image_created_timestamp="$(docker inspect -f '{{ .Created }}' ${image_id} | sed -e 's/[:-]//g' | cut -d '.' -f 1)"
   local git_sha="$(git log -1 --pretty=format:"%h")"
   local tag="${DOCKER_SEMVER_MAJOR_MINOR_PATCH_VERSION}-${image_created_timestamp}-${git_sha}-${BUILD_NUMBER}"
-  docker tag ${image_id} ${DOCKER_NAMESPACE}/${DOCKER_IMAGE_NAME}:${tag}
-  docker push ${DOCKER_NAMESPACE}/${DOCKER_IMAGE_NAME}
+  docker tag ${image_id} ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}:${tag}
+  docker push ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}
 }
 
 run

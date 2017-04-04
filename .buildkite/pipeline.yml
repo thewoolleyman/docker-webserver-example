@@ -4,4 +4,3 @@ steps:
   - wait
   - label: ':docker: push'
     command: 'ci/push'
-
