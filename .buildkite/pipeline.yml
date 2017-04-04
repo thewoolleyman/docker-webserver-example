@@ -3,5 +3,5 @@ steps:
     command: 'ci/build'
   - wait
   - label: ':docker: push'
-    command: 'ci/build'
+    command: 'ci/push'
 
