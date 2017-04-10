@@ -1,6 +1,5 @@
 steps:
-  - label: ':classical_building: build'
-    command: 'ci/build'
-  - wait
-  - label: ':docker: push'
-    command: 'ci/login && ci/push'
+  - label: ':docker: build && push staging'
+    command: 'ci/login && ci/build && ci/push'
+    env:
+      DOCKER_PROMOTE_TAG: staging

@@ -11,6 +11,7 @@ run() {
   local git_sha="$(git log -1 --pretty=format:"%h")"
   local tag="${DOCKER_SEMVER_MAJOR_MINOR_PATCH_VERSION}-${image_created_timestamp}-${BUILD_NUMBER}-${git_sha}"
   docker tag ${image_id} ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}:${tag}
+  docker tag ${image_id} ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}:${DOCKER_PROMOTE_TAG}
   docker push ${DOCKER_NAMESPACE}/${DOCKER_REPO_NAME}
 }
 
