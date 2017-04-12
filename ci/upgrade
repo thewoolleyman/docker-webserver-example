@@ -6,10 +6,11 @@ run() {
 
   source "${dir}/set-env-vars.sh"
 
-  export RANCHER_URL
 
   curl -L -s https://github.com/rancher/rancher-compose/releases/download/v0.12.4/rancher-compose-linux-amd64-v${RANCHER_COMPOSE_VERSION}.tar.gz | tar xz
 
+  export COMPOSE_FILE
+  export RANCHER_URL
   rancher-compose-v${RANCHER_COMPOSE_VERSION}/rancher-compose -r rancher/$RANCHER_ENV/$COMPOSE_PROJECT_NAME/rancher-compose.yml up -p -d -u -c --force-upgrade
 }
 
