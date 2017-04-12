@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+run() {
+  local dir=$(dirname ${BASH_SOURCE})
+  source "${dir}/bash-boilerplate.sh"
+
+  source "${dir}/set-env-vars.sh"
+
+  export RANCHER_URL
+  rancher-compose -r rancher/$RANCHER_ENV/$COMPOSE_PROJECT_NAME/rancher-compose.yml up -p -d -u -c --force-upgrade
+}
+
+run
