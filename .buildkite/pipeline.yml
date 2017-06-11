@@ -5,4 +5,5 @@ steps:
       DOCKER_PROMOTE_TAG: staging
   - wait
   - label: ':buildkite: upgrade'
-    command: 'ci/upgrade'
+    command: 'echo "Rancher stack down, upgrade disabled for now"'
+#    command: 'ci/upgrade'
